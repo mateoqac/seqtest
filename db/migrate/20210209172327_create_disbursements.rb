@@ -11,5 +11,7 @@ class CreateDisbursements < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_index :disbursements,[:merchant_id, :week_of_year, :year],unique: true
   end
 end

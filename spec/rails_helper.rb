@@ -6,7 +6,6 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'shoulda-matchers'
 require 'rspec/rails'
-
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -42,6 +41,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
   config.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
@@ -52,6 +52,7 @@ RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
+  config.include FactoryBot::Syntax::Methods
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.

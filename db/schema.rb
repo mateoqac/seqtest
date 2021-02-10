@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_172327) do
     t.integer "year", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id", "week_of_year", "year"], name: "index_disbursements_on_merchant_id_and_week_of_year_and_year", unique: true
     t.index ["merchant_id"], name: "index_disbursements_on_merchant_id"
   end
 

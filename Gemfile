@@ -5,19 +5,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'dry-validation'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'pathway'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'sidekiq'
+gem "sidekiq-cron", "~> 1.1"
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'pry-nav'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'web-console', '>= 3.3.0'
