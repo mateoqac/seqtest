@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hi! I'm Mateo and in this project you can find my simple approach to solve the given exercise.
 
-Things you may want to cover:
+For this project I'm using `ruby 2.6.6` and `rails 6.0.3`.
+Be sure you have your environment set up for those technologies.
 
-* Ruby version
+After download the repository you need to setup your database. You can do it following this steps:
 
-* System dependencies
+    rails | rake db:create
 
-* Configuration
+    rails | rake db:migrate
 
-* Database creation
+Running just those two commands, your database will be ready.
 
-* Database initialization
+Also we need to load some data into our database, for the sake purpose of the exercise.
+To do this you need to run the following commands:
 
-* How to run the test suite
+    rake init:load_data
+    rake disbursement:generate
 
-* Services (job queues, cache servers, search engines, etc.)
+> I assumed the disbursements were already created on the DB, due there is a job running every Monday to generate them.
 
-* Deployment instructions
+The API endpoint to obtain the disbursements is
 
-* ...
+    http://localhost:3000/disbursements?week=&year=
+
+You need no specify the week of the year (from 1 to 52/53) and the year ( yyyy).  Also you can get the disbursement for a specify merchant adding to the params `merchant_id`. If `merchant_id` is blank, it will bring all the disbursements for that date.
